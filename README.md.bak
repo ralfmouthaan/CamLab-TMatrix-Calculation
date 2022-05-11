@@ -9,5 +9,3 @@ Scripts for calculating the transmission matrix from the raw data, as collected 
 - TMatrix_MatrixPlots.m shows images of the calculated transmission matrix.
 - TMatrix_SingularValues.m plots the singular values of the transmission matrix.
 - TMatrix_SingularVectors.m plots the left-singular vectors and the right-singular vectors of the transmission matrix, corresponding to orthogonal input and output distributions respectively (Note, these are not propagation-invariant modes).
-
-The TMatrix_Calculation.m script outputs a .mat file with a transmission matrix that is used by most of the other scripts, as well as scripts in the CamLab-TMatrix-Imaging and CamLab-TMatrix-Projection repositories.
