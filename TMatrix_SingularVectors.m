@@ -2,28 +2,12 @@
 % University of Cambridge
 %
 % Script to plot out singular vectors of the transmission matrix
+% Assumes square input and output fields
 
 clc; clear variables; close all;
 
 %%  Read in transmission matrix
 load('T-Matrix.mat');
-
-%% Determine Width and Height
-
-% This relies on the processing being done on the same computer where the
-% measurement was taken. Alternatively, set these manually.
-
-fid = fopen("D:/RPM Data Files/Output Camera Pol 1.txt");
-for i = 1:7
-    s = fgets(fid);
-end
-s = fgets(fid);
-s = strsplit(s, '\t');
-Height = str2num(s{2})-2;
-s = fgets(fid);
-s = strsplit(s, '\t');
-Width = str2num(s{2})-2;
-fclose(fid);
 
 %% Calculate SVD
 
@@ -38,7 +22,7 @@ for ii = 1:16
     % Left-hand singular vector
     figure(1)
     x = U(:,i);
-    x = RowMajorToMatrix(x, Width, Height);
+    x = RowMajorToMatrix(x, sqrt(length(x)), sqrt(length(x)));
     subplot(4,4,ii);
     imagesc(abs(x));
     axis square;
@@ -47,7 +31,7 @@ for ii = 1:16
     % Right-hand singular vector
     figure(2)
     x = V(:,i);
-    x = RowMajorToMatrix(x, Width, Height);
+    x = RowMajorToMatrix(x, sqrt(length(x)), sqrt(length(x)));
     subplot(4,4,ii);
     imagesc(abs(x));
     axis square;

@@ -62,7 +62,7 @@ EinInv = (V.*S.')*U';
 % EinFft
 [U,S,V] = svd(EinFft, 'econ');
 S = diag(S);
-NoSVs = sum(S > max(S)*EinFFtNoiseFloor)+1;
+NoSVs = sum(S > max(S)*EinFftNoiseFloor)+1;
 V(:,NoSVs:end) = [];
 U(:,NoSVs:end) = [];
 S(NoSVs:end) = [];
@@ -70,7 +70,7 @@ S = 1./S(:);
 EinFftInv = (V.*S.')*U';
 
 % Eout
-[U,S,V] = svd(EOutNoiseFloor, 'econ');
+[U,S,V] = svd(EoutNoiseFloor, 'econ');
 S = diag(S);
 NoSVs = sum(S > max(S)*1e-2)+1;
 V(:,NoSVs:end) = [];

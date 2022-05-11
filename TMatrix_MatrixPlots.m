@@ -27,11 +27,11 @@ xticks(''); yticks('');
 figure('Position', [400 400 400 400]);
 imagesc(abs(T*conj(T).'));
 axis square;
-title('T^*T')
+title('TT^*')
 xticks(''); yticks('');
 
 figure('position', [400 400 400 400]);
 imagesc(abs(conj(T).'*T));
 axis square;
-title('TT^*')
+title('T^*T')
 xticks(''); yticks('');
